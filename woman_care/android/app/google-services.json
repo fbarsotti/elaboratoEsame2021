@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1079687338229",
+    "project_id": "elaboratoesame-a6e36",
+    "storage_bucket": "elaboratoesame-a6e36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079687338229:android:8be9d12432797985fb8dbc",
+        "android_client_info": {
+          "package_name": "com.francescobarsotti.womanCare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079687338229-ncdscp3pjknhh177i0hniuq8427b2m55.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.francescobarsotti.womanCare",
+            "certificate_hash": "6cef3a7f8666aa0e6ee47cd7bc9c73bb1fa7114c"
+          }
+        },
+        {
+          "client_id": "1079687338229-fq2pvki4kmdb8nnesvtoavpqdclloe7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChzJ2orZssxJUw0NK4h1Q4ONrzyFEZjt8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079687338229-fq2pvki4kmdb8nnesvtoavpqdclloe7g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
