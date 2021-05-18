@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studio_lab/core/presentation/customization/wc_colors.dart';
-import 'package:studio_lab/options/pages/options_account_page.dart';
+import 'package:studio_lab/feature/options/pages/options_account_page.dart';
 
 class OptionsPage extends StatefulWidget {
   OptionsPage({
