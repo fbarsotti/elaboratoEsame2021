@@ -41,6 +41,7 @@ class _HomeButtonsState extends State<HomeButtons> {
               currentIndex = value;
             });
           },
+          color: WCColors.text,
           isSelected: isSelected,
         ),
         const SizedBox(height: 16),

@@ -4,7 +4,7 @@ import 'package:studio_lab/feature/authentication/data/login_data.dart';
 import 'package:studio_lab/feature/home/presentation/home.dart';
 
 class LoginButton extends StatelessWidget {
-  LoginData auth;
+  final LoginData auth;
   LoginButton({@required this.auth, Key key}) : super(key: key);
 
   @override
