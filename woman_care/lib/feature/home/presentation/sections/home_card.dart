@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studio_lab/core/presentation/customization/wc_colors.dart';
+import 'package:studio_lab/feature/statistics/presentation/statistics_select_sondaggio.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({Key key}) : super(key: key);
@@ -34,7 +35,15 @@ class HomeCard extends StatelessWidget {
                     backgroundColor:
                         MaterialStateProperty.all<Color>(Colors.white),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return SelectSondaggio();
+                        },
+                      ),
+                    );
+                  },
                   child: Padding(
                     padding: const EdgeInsets.all(8),
                     child: Text(

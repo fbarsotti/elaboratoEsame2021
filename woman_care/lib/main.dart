@@ -6,9 +6,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studio_lab/core/presentation/customization/wc_colors.dart';
 import 'package:studio_lab/feature/authentication/presentation/login_page.dart';
+import 'package:studio_lab/feature/statistics/data/datasource/statistics_remote_datasource.dart';
+import 'package:studio_lab/feature/statistics/data/repository/statistics_repository_impl.dart';
 
 import 'core/infrastructure/log/bloc_logger.dart';
 import 'core/infrastructure/log/logger.dart';
+import 'feature/statistics/presentation/bloc/sondaggio_bloc.dart';
 
 void main() async {
   // E' necessario aggiungerlo prima della dependency injection
@@ -23,7 +26,20 @@ void main() async {
   ));
 
   runZonedGuarded(() {
-    runApp(WCApp());
+    runApp(
+      MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => SondaggioBloc(
+              statisticsRepository: StatisticsRepositoryImpl(
+                statisticsRemoteDatasource: StatisticsRemoteDatasource(),
+              ),
+            ),
+          ),
+        ],
+        child: WCApp(),
+      ),
+    );
   }, Logger.error);
 }
 

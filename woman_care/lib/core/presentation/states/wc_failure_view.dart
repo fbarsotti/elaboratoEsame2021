@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:studio_lab/core/infrastructure/error/types/failures.dart';
-import 'package:studio_lab/core/infrastructure/localization/app_localizations.dart';
 
-class SRFailureView extends StatelessWidget {
+class WCFailureView extends StatelessWidget {
   final Failure failure;
   final Function refresh;
 
-  const SRFailureView({
+  const WCFailureView({
     Key key,
     @required this.failure,
     this.refresh,
@@ -30,7 +29,7 @@ class SRFailureView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 1.0),
             child: Text(
-              failure.localizedDescription(context),
+              failure.e.toString(),
               textAlign: TextAlign.center,
             ),
           ),
@@ -40,7 +39,7 @@ class SRFailureView extends StatelessWidget {
             ),
           TextButton(
             child: Text(
-              AppLocalizations.of(context).translate('show_error'),
+              'Mostra errore',
               style: TextStyle(
                 color: Colors.grey[600],
               ),
@@ -50,15 +49,14 @@ class SRFailureView extends StatelessWidget {
                 context: context,
                 builder: (context) {
                   return AlertDialog(
-                    title: Text(failure.localizedDescription(context)),
+                    title: Text(failure.e.toString()),
                     content: SelectableText(failure.e.toString()),
                     actions: [
                       TextButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child:
-                            Text(AppLocalizations.of(context).translate('ok')),
+                        child: Text('Ok'),
                       ),
                     ],
                   );
@@ -69,7 +67,7 @@ class SRFailureView extends StatelessWidget {
           if (refresh != null)
             TextButton(
               child: Text(
-                AppLocalizations.of(context).translate('refresh'),
+                'Riprova',
                 style: TextStyle(
                   color: Colors.grey[600],
                 ),

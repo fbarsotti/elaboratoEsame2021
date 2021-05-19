@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-class Profile {
+mixin Profile {
   static User get user => FirebaseAuth.instance.currentUser;
 }

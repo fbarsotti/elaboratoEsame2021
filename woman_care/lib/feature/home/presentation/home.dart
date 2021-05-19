@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
           tabs: [
             TabData(iconData: Icons.home, title: 'Home'),
             TabData(iconData: Icons.data_usage, title: 'Statistiche'),
-            TabData(iconData: Icons.settings, title: 'Impostazioni'),
+            TabData(iconData: Icons.settings, title: 'Opzioni'),
           ],
           onTabChangedListener: (position) {
             setState(() {

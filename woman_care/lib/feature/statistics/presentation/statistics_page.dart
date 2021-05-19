@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studio_lab/core/presentation/customization/wc_colors.dart';
 import 'package:studio_lab/core/presentation/generic_header.dart';
+import 'package:studio_lab/feature/statistics/presentation/bloc/sondaggio_bloc.dart';
+import 'package:studio_lab/feature/statistics/presentation/statistics_select_sondaggio.dart';
 
 class StatisticsPage extends StatefulWidget {
   StatisticsPage({Key key}) : super(key: key);
@@ -16,7 +19,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
       body: Center(
         child: Column(
           children: [
-            GenericHeader(text: 'Esplora'),
+            GenericHeader(text: 'Statistiche'),
             const SizedBox(height: 64),
             CircleAvatar(
               backgroundColor: WCColors.primary,
@@ -57,7 +60,16 @@ class _StatisticsPageState extends State<StatisticsPage> {
                 WCColors.text,
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              BlocProvider.of<SondaggioBloc>(context).add(GetSondaggi());
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SelectSondaggio();
+                  },
+                ),
+              );
+            },
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
