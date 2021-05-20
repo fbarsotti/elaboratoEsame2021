@@ -29,7 +29,7 @@ class WCFailureView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 1.0),
             child: Text(
-              failure.e.toString(),
+              'Si è riscontrato un errore!',
               textAlign: TextAlign.center,
             ),
           ),

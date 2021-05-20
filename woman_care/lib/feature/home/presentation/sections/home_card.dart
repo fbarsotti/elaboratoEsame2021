@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studio_lab/core/presentation/customization/wc_colors.dart';
-import 'package:studio_lab/feature/statistics/presentation/statistics_select_sondaggio.dart';
+import 'package:studio_lab/feature/statistics/sondaggio/presentation/bloc/sondaggio_bloc.dart';
+import 'package:studio_lab/feature/statistics/sondaggio/presentation/statistics_select_sondaggio.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({Key key}) : super(key: key);
@@ -36,6 +38,7 @@ class HomeCard extends StatelessWidget {
                         MaterialStateProperty.all<Color>(Colors.white),
                   ),
                   onPressed: () {
+                    BlocProvider.of<SondaggioBloc>(context).add(GetSondaggi());
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) {

@@ -1,4 +1,4 @@
-import 'package:studio_lab/feature/statistics/data/model/sondaggio_remote_model.dart';
+import 'package:studio_lab/feature/statistics/sondaggio/data/model/sondaggio_remote_model.dart';
 
 class SondaggioDomainModel {
   int id;

@@ -2,7 +2,7 @@ import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_lab/feature/home/presentation/home_page.dart';
 import 'package:studio_lab/feature/options/options.dart';
-import 'package:studio_lab/feature/statistics/presentation/statistics_page.dart';
+import 'package:studio_lab/feature/statistics/statistics_page.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);

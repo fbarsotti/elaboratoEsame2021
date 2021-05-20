@@ -1,19 +1,18 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
 import 'package:studio_lab/core/infrastructure/error/types/failures.dart';
-import 'package:studio_lab/feature/statistics/domain/model/sondaggio_domain_model.dart';
-import 'package:studio_lab/feature/statistics/domain/repository/statistics_repository.dart';
-
+import 'package:studio_lab/feature/statistics/sondaggio/domain/model/sondaggio_domain_model.dart';
+import 'package:studio_lab/feature/statistics/sondaggio/domain/repository/sondaggio_repository.dart';
 part 'sondaggio_event.dart';
 part 'sondaggio_state.dart';
 
 class SondaggioBloc extends Bloc<SondaggioEvent, SondaggioState> {
+  final SondaggioRepository statisticsRepository;
+
   SondaggioBloc({
     @required this.statisticsRepository,
   }) : super(SondaggioInitial());
-  final StatisticsRepository statisticsRepository;
 
   @override
   Stream<SondaggioState> mapEventToState(

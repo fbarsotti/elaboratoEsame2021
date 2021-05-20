@@ -2,13 +2,13 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_lab/core/infrastructure/error/handler.dart';
 import 'package:studio_lab/core/infrastructure/error/types/failures.dart';
-import 'package:studio_lab/feature/statistics/data/datasource/statistics_remote_datasource.dart';
-import 'package:studio_lab/feature/statistics/domain/model/sondaggio_domain_model.dart';
-import 'package:studio_lab/feature/statistics/domain/repository/statistics_repository.dart';
+import 'package:studio_lab/feature/statistics/sondaggio/data/datasource/statistics_remote_datasource.dart';
+import 'package:studio_lab/feature/statistics/sondaggio/domain/model/sondaggio_domain_model.dart';
+import 'package:studio_lab/feature/statistics/sondaggio/domain/repository/sondaggio_repository.dart';
 
-class StatisticsRepositoryImpl implements StatisticsRepository {
+class SondaggioRepositoryImpl implements SondaggioRepository {
   StatisticsRemoteDatasource statisticsRemoteDatasource;
-  StatisticsRepositoryImpl({
+  SondaggioRepositoryImpl({
     @required this.statisticsRemoteDatasource,
   });
 

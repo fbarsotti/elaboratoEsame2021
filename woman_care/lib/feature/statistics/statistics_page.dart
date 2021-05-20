@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studio_lab/core/presentation/customization/wc_colors.dart';
 import 'package:studio_lab/core/presentation/generic_header.dart';
-import 'package:studio_lab/feature/statistics/presentation/bloc/sondaggio_bloc.dart';
-import 'package:studio_lab/feature/statistics/presentation/statistics_select_sondaggio.dart';
+import 'package:studio_lab/feature/statistics/sondaggio/presentation/bloc/sondaggio_bloc.dart';
+import 'package:studio_lab/feature/statistics/sondaggio/presentation/statistics_select_sondaggio.dart';
 
 class StatisticsPage extends StatefulWidget {
   StatisticsPage({Key key}) : super(key: key);

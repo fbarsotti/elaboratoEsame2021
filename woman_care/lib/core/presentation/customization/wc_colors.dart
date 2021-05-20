@@ -9,6 +9,7 @@ class WCColors {
   static Color get primary => const Color(0xffFE7D8A);
   static Color get extraLightText => const Color(0xffFFFFFF);
   static Color get lightText => const Color(0xffACACAC);
+  static Color get blackText => const Color(0xff000000);
   static Color get text => const Color(0xff3E3E3E);
   static Color get title => const Color(0xff7F3E45);
   static Color get appBarColor => const Color(0xffE188C2);

@@ -1,17 +1,18 @@
 import 'dart:async';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studio_lab/core/presentation/customization/wc_colors.dart';
 import 'package:studio_lab/feature/authentication/presentation/login_page.dart';
-import 'package:studio_lab/feature/statistics/data/datasource/statistics_remote_datasource.dart';
-import 'package:studio_lab/feature/statistics/data/repository/statistics_repository_impl.dart';
-
+import 'package:studio_lab/feature/statistics/domande/data/datasource/domanda_remote_datasource.dart';
+import 'package:studio_lab/feature/statistics/domande/data/repository/domande_repository_impl.dart';
+import 'package:studio_lab/feature/statistics/domande/presentation/bloc/domande_bloc.dart';
 import 'core/infrastructure/log/bloc_logger.dart';
 import 'core/infrastructure/log/logger.dart';
-import 'feature/statistics/presentation/bloc/sondaggio_bloc.dart';
+import 'feature/statistics/sondaggio/data/datasource/statistics_remote_datasource.dart';
+import 'feature/statistics/sondaggio/data/repository/sondaggio_repository_impl.dart';
+import 'feature/statistics/sondaggio/presentation/bloc/sondaggio_bloc.dart';
 
 void main() async {
   // E' necessario aggiungerlo prima della dependency injection
@@ -31,8 +32,15 @@ void main() async {
         providers: [
           BlocProvider(
             create: (context) => SondaggioBloc(
-              statisticsRepository: StatisticsRepositoryImpl(
+              statisticsRepository: SondaggioRepositoryImpl(
                 statisticsRemoteDatasource: StatisticsRemoteDatasource(),
+              ),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => DomandeBloc(
+              domandeRepository: DomandeRepositoryImpl(
+                domandaRemoteDatasource: DomandaRemoteDatasource(),
               ),
             ),
           ),
