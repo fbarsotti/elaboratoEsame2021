@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:studio_lab/core/infrastructure/error/handler.dart';
 
 import 'package:studio_lab/core/infrastructure/error/types/failures.dart';
-import 'package:studio_lab/feature/statistics/domande/data/datasource/domanda_remote_datasource.dart';
+import 'package:studio_lab/feature/statistics/domande/data/datasource/domande_remote_datasource.dart';
 import 'package:studio_lab/feature/statistics/domande/domain/model/domanda_domain_model.dart';
 import 'package:studio_lab/feature/statistics/domande/domain/repository/domande_repository.dart';
 
 class DomandeRepositoryImpl implements DomandeRepository {
-  DomandaRemoteDatasource domandaRemoteDatasource;
+  DomandeRemoteDatasource domandeRemoteDatasource;
 
   DomandeRepositoryImpl({
-    @required this.domandaRemoteDatasource,
+    @required this.domandeRemoteDatasource,
   });
 
   @override
@@ -20,7 +20,7 @@ class DomandeRepositoryImpl implements DomandeRepository {
   ) async {
     try {
       final remoteDomande =
-          await domandaRemoteDatasource.getAllDomande(sondaggioId);
+          await domandeRemoteDatasource.getAllDomande(sondaggioId);
       List<DomandaDomainModel> domainDomande = remoteDomande
           .map(
             (e) => DomandaDomainModel.fromRemoteModel(e),

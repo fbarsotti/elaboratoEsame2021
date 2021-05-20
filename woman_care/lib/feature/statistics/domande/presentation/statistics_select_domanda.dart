@@ -6,6 +6,8 @@ import 'package:studio_lab/core/presentation/states/wc_failure_view.dart';
 import 'package:studio_lab/core/presentation/states/wc_loading_view.dart';
 import 'package:studio_lab/feature/statistics/domande/domain/model/domanda_domain_model.dart';
 import 'package:studio_lab/feature/statistics/domande/presentation/bloc/domande_bloc.dart';
+import 'package:studio_lab/feature/statistics/risposte/presentation/bloc/risposte_bloc.dart';
+import 'package:studio_lab/feature/statistics/risposte/presentation/statistics_risposte.dart';
 
 class StatisticsSelectDomanda extends StatefulWidget {
   StatisticsSelectDomanda({Key key}) : super(key: key);
@@ -45,7 +47,18 @@ class _StatisticsSelectDomandaState extends State<StatisticsSelectDomanda> {
         return Padding(
           padding: const EdgeInsets.all(16),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              BlocProvider.of<RisposteBloc>(context).add(
+                GetRisposte(domandaId: domande[index].id),
+              );
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return StatisticsRisposte();
+                  },
+                ),
+              );
+            },
             style: ButtonStyle(
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
