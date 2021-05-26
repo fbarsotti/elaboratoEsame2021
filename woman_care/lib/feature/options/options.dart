@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:studio_lab/core/presentation/customization/generic_title.dart';
 import 'package:studio_lab/core/presentation/customization/wc_colors.dart';
-import 'package:studio_lab/core/presentation/generic_header.dart';
+import 'package:studio_lab/core/presentation/customization/generic_header.dart';
 import 'package:studio_lab/feature/options/pages/options_account_page.dart';
 
 class OptionsPage extends StatefulWidget {
@@ -22,17 +23,7 @@ class _OptionsPageState extends State<OptionsPage> {
           Expanded(
             child: ListView(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'Generali',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
+                GenericTitle(text: 'Generali'),
                 ListTile(
                   leading: Icon(
                     Icons.account_circle_rounded,

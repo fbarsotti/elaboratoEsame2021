@@ -4,6 +4,7 @@ import 'package:studio_lab/core/infrastructure/error/handler.dart';
 import 'package:studio_lab/core/infrastructure/error/types/failures.dart';
 import 'package:studio_lab/feature/statistics/risposte/data/datasource/risposte_remote_datasource.dart';
 import 'package:studio_lab/feature/statistics/risposte/domain/model/risposta_domain_model.dart';
+import 'package:studio_lab/feature/statistics/risposte/domain/model/rispostapossibile_domain_model.dart';
 import 'package:studio_lab/feature/statistics/risposte/domain/repository/risposte_repository.dart';
 
 class RisposteRepositoryImpl implements RisposteRepository {
@@ -23,6 +24,25 @@ class RisposteRepositoryImpl implements RisposteRepository {
           )
           .toList();
       return Right(domainRisposte);
+    } catch (e, s) {
+      print(e.toString());
+      return Left(handleError(e, s));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<RispostaPossibileDomainModel>>>
+      getRispostePossibiliByDomanda(int domandaId) async {
+    try {
+      final remoteRispostePossibili = await risposteRemoteDatasource
+          .getRispostePossibiliByDomanda(domandaId);
+      List<RispostaPossibileDomainModel> domainRispostePossibili =
+          remoteRispostePossibili
+              .map(
+                (e) => RispostaPossibileDomainModel.fromRemoteModel(e),
+              )
+              .toList();
+      return Right(domainRispostePossibili);
     } catch (e, s) {
       print(e.toString());
       return Left(handleError(e, s));

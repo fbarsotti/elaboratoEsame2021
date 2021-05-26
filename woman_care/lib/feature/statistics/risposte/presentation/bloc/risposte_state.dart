@@ -9,9 +9,11 @@ class RisposteLoading extends RisposteState {}
 
 class RisposteLoaded extends RisposteState {
   final List<RispostaDomainModel> risposte;
+  final List<RispostaPossibileDomainModel> rispostePossibili;
 
   RisposteLoaded({
     @required this.risposte,
+    @required this.rispostePossibili,
   });
 }
 

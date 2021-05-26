@@ -54,7 +54,9 @@ class _StatisticsSelectDomandaState extends State<StatisticsSelectDomanda> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    return StatisticsRisposte();
+                    return StatisticsRisposte(
+                      domanda: domande[index].contenuto,
+                    );
                   },
                 ),
               );

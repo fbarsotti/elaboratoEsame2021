@@ -20,6 +20,19 @@ class WCColors {
   static Color get primaryShadeOne => const Color(0xffFFCED3);
   static Color get primaryShadeTwo => const Color(0xffFE9EA7);
 
+  static List<Color> get graphColors => const [
+        Color(0xffFE7D8A),
+        Color(0xffFEB07D),
+        Color(0xffFEF17D),
+        Color(0xffCBFE7D),
+        Color(0xff8AFE7D),
+        Color(0xff7DFEB1),
+        Color(0xff7DFEF1),
+        Color(0xffB07DFE),
+        Color(0xff7D8AFE),
+      ];
+  static Color get selectedColor => const Color(0xffFEAEAE);
+
   static MaterialColor get primaryTheme => generateMaterialColor(primary);
 
   static Color get greyBlue => const Color(0xffF5F4F8);

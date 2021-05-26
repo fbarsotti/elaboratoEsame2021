@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 
 import 'package:studio_lab/core/infrastructure/error/types/failures.dart';
 import 'package:studio_lab/feature/statistics/risposte/domain/model/risposta_domain_model.dart';
+import 'package:studio_lab/feature/statistics/risposte/domain/model/rispostapossibile_domain_model.dart';
 import 'package:studio_lab/feature/statistics/risposte/domain/repository/risposte_repository.dart';
 
 part 'risposte_event.dart';
@@ -29,13 +31,21 @@ class RisposteBloc extends Bloc<RisposteEvent, RisposteState> {
     yield RisposteLoading();
     final risposteResult =
         await risposteRepository.getRisposteByDomanda(domandaId);
-    yield* risposteResult.fold(
-      (l) async* {
-        yield RisposteFailure(failure: l);
-      },
-      (r) async* {
-        yield RisposteLoaded(risposte: r);
-      },
-    );
+    final risposte = risposteResult.getOrElse(() => null);
+    final rispostePossibiliResult =
+        await risposteRepository.getRispostePossibiliByDomanda(domandaId);
+    final rispostePossibili = rispostePossibiliResult.getOrElse(() => null);
+    if (risposte == null || rispostePossibili == null) {
+      yield RisposteFailure(
+        failure: Failure(
+          e: Exception('Si è verificato un errore!'),
+        ),
+      );
+    } else {
+      yield RisposteLoaded(
+        risposte: risposte,
+        rispostePossibili: rispostePossibili,
+      );
+    }
   }
 }
